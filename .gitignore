@@ -3,7 +3,6 @@
 .sfdx
 .project
 .salesforce
-node_modules
 .idea
 .tern-project
 .settings
