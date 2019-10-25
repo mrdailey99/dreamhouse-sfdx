@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase failureBehaviour="Continue" id="126">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reopen</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="environment"/>
+        <argument id="securityToken"/>
+        <argument id="privateBrowsingMode"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="5" title="Set Values: CaseStatus">
+      <tags/>
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">CaseStatus</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">New</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="6" title="Soap request to get cases with status New">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Soap request to get cases with status New</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="7">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.SoapRequest" name="SoapRequest" testItemId="2" title="Web Service Request (SOAP): getCasesForCaseStatus⇒WebResponse">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="wsdlLocation">
+                  <value class="url">WSDL/CasesWebService.xml</value>
+                </argument>
+                <argument id="service">
+                  <value class="value" valueClass="string">CasesWebServiceService</value>
+                </argument>
+                <argument id="port">
+                  <value class="value" valueClass="string">CasesWebService</value>
+                </argument>
+                <argument id="operation">
+                  <value class="value" valueClass="string">getCasesForCaseStatus</value>
+                </argument>
+                <argument id="tnsPrefix">
+                  <value class="value" valueClass="string">tns</value>
+                </argument>
+                <argument id="requestBody">
+                  <value class="value" valueClass="string">&lt;ns1:getCasesForCaseStatus xmlns:ns1='http://soap.sforce.com/schemas/class/ProvarQS/CasesWebService'&gt;\n\n      &lt;ns1:caseStatus&gt;New&lt;/ns1:caseStatus&gt;\n    &lt;/ns1:getCasesForCaseStatus&gt;</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">WebResponse</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="statusResultName">
+                  <value class="value" valueClass="string">SoapResponseStatus</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="3" title="Assert: Status of the 1st received case with 'New'">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="value" valueClass="string">New</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="WebResponse"/>
+                    <path element="result"/>
+                    <path element="Status"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

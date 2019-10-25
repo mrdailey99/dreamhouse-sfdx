@@ -1,0 +1,26 @@
+{
+   "provarHome":"C:/Program Files/Provar/",
+   "projectPath":"C:/Users/16156/Provar/Workspaces/ProvarIntegrations/ProvarIntegrations",
+   "resultsPath":"C:/Users/16156/Provar/Workspaces/ProvarIntegrations/ProvarIntegrations/ANT/Results",
+   "smtpPath": "",
+   "resultsPathDisposition": "Replace", 
+   "testOutputLevel":"WARNING",
+   "pluginOutputlevel":"WARNING",
+   "stopOnError":false,
+   "lightningMode":true,
+   "connectionRefreshType":"Reload",
+   "metadata":{
+      "metadataLevel":"Reuse",
+      "cachePath":"../.provarCaches"
+   },
+   "environment":{
+      "testEnvironment":"Dev",
+      "webBrowser":"Chrome_Headless",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+   }
+   ,"testCase":[
+    	"/SeleniumGrid/Tests1/CreateNewContact.testcase"  
+	]
+}

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="7" registryId="bfa92cc5-bde9-4cec-aa9c-e6e9708aa6a9" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSalesConsole</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument argId="979cc2e8-b7a8-4a72-8994-b66b632bb2a3" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="12" title="On SF Opportunity Home screen">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=ObjectHome"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Opportunity Home screen</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="13">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="14" title="With Opportunity rows {OPPORTUNITY_NAME = $OpportunityName}">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="locator">
+                  <value class="uiLocator" uri="sf:ui:locator:row?table=ObjectHome%2Frecent%2FrecentTable"/>
+                </argument>
+                <argument id="uiRowLocator">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="OPPORTUNITY_NAME"/>
+                    </lhs>
+                    <rhs class="variable" topLevel="true">
+                      <path element="OpportunityName"/>
+                    </rhs>
+                  </value>
+                </argument>
+                <argument id="locatorDescription">
+                  <value class="value" valueClass="string">With Opportunity rows {OPPORTUNITY_NAME = $OpportunityName}</value>
+                </argument>
+                <argument id="failIfNotFound">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="debugRowLocator"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Row</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Local</value>
+                </argument>
+                <argument id="autoPaginate"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="15">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Click the Opportunity Name field">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=OPPORTUNITY_NAME&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DOpportunity%26field%3DName&amp;rowLocator=OPPORTUNITY_NAME+%3D+%27AppleJacks%27"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Opportunity Name field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="options" name="autoPaginate" title="Auto Paginate">
+                  <summary>Whether Show More/Next is clicked till the match condition succeeds.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:979cc2e8-b7a8-4a72-8994-b66b632bb2a3" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+    <param name="OpportunityName" title="OpportunityName">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="reuseConnectionName"/>
+    <argument id="OpportunityName"/>
+  </args>
+</testCase>

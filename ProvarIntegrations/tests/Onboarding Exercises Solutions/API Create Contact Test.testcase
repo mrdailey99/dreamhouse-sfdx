@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="22">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="12" title="Set Values: Level">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Title</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Senior Consultant</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Languages</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Korean</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Level</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Secondary</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Contact=&gt;ContactId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Contact</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ContactId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="LastName">
+          <value class="value" valueClass="string">Greentree</value>
+        </argument>
+        <argument id="Salutation">
+          <value class="value" valueClass="string">Prof.</value>
+        </argument>
+        <argument id="FirstName">
+          <value class="value" valueClass="string">Daniel</value>
+        </argument>
+        <argument id="Phone">
+          <value class="value" valueClass="string">6159991111</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="LastName"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Salutation" name="Salutation" title="Salutation"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=FirstName" name="FirstName" title="FirstName"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Phone" name="Phone" title="Phone"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact WHERE LastName='Greentree'=&gt;ContactRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from Contact WHERE LastName='Greentree'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ContactRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" testItemId="3" title="Update Object: Contact = {ContactRows.Id}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Contact</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">ContactUpdated</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="ContactRows"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Title">
+          <value class="value" valueClass="string">Senior Consultant</value>
+        </argument>
+        <argument id="Languages__c">
+          <value class="value" valueClass="string">Korean</value>
+        </argument>
+        <argument id="Level__c">
+          <value class="value" valueClass="string">Secondary</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Title" name="Title" title="Title"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Languages__c" name="Languages__c" title="Languages__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Level__c" name="Level__c" title="Level__c"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Contact (Employee) View screen">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=Contact&amp;action=View&amp;recordType=Employee&amp;noOverride=true"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Contact (Employee) View screen</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetObjectId">
+          <value class="variable">
+            <path element="ContactRows"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="7" title="Verify Birthdate matches updated value">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Values</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="Birthdate">
+                      <fieldLocator uri="ui:locator?name=Birthdate&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DContact%26field%3DBirthdate"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                          <value class="variable">
+                            <path element="BirthDate"/>
+                          </value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="8" title="Verify title matches updated value">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Values</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="Title">
+                      <fieldLocator uri="ui:locator?name=Title&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DContact%26field%3DTitle"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                          <value class="variable">
+                            <path element="Title"/>
+                          </value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="9" title="Verify Languages match updated value">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Values</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="Languages__c">
+                      <fieldLocator uri="ui:locator?name=Languages__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DContact%26field%3DLanguages__c"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                          <value class="variable">
+                            <path element="Languages"/>
+                          </value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="10" title="Verify Level match updated value">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Values</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="Level__c">
+                      <fieldLocator uri="ui:locator?name=Level__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DContact%26field%3DLevel__c"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                          <value class="variable">
+                            <path element="Level"/>
+                          </value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="14" title="Delete Object: {ContactRows.Id}">
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="ContactRows"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

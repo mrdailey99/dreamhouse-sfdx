@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="26" registryId="09dcc565-2854-4896-b81a-a1549b1241b3">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSalesConsole</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument argId="609b8fe8-c895-4216-a2fc-6810942dc3e5" id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="39" title="Set Parameters">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Set Parameters</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="40">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="38" title="Set Values: LastName">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Professional Variable Incorporated VEOBZ</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LastName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Johnson</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="53" title="Set Values: Zip">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Street</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">19 Jr Gilliam Way</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">City</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Nashville</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">State</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">TN</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Zip</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">37219</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="26" title="Click Existing Account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Click Existing Account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="27">
+          <steps>
+            <caseCall testCaseId="369df9c5-4b79-40a0-abf4-c23abe1d6c4a" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Locate Existing Account.testcase" testItemId="28">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="AccountName">
+                  <value class="variable">
+                    <path element="AccountName"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Click New Contact button">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Click New Contact button</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="31">
+          <steps>
+            <caseCall testCaseId="30dc2e8d-722f-490f-aee6-32039e7a4ec3" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click New Contact On Account.testcase" testItemId="29">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="AccountId"/>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="35" title="Add Contact Data and Save">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Add Contact Data and Save</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="36">
+          <steps>
+            <caseCall testCaseId="2bb70f0b-bfe5-42ac-ba4c-2681924bd7a0" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Add New Contact Data and Save.testcase" testItemId="37">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="AccountName"/>
+                <argument id="AccountId"/>
+                <argument id="LastName">
+                  <value class="variable">
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="Street">
+                  <value class="variable">
+                    <path element="Street"/>
+                  </value>
+                </argument>
+                <argument id="State">
+                  <value class="variable">
+                    <path element="State"/>
+                  </value>
+                </argument>
+                <argument id="City">
+                  <value class="variable">
+                    <path element="City"/>
+                  </value>
+                </argument>
+                <argument id="Zip">
+                  <value class="variable">
+                    <path element="Zip"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="42" title="Edit Account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Edit Account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="43">
+          <steps>
+            <caseCall testCaseId="d99d2a9e-3380-4fe5-b062-3fd9676dea7d" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Edit Console Account.testcase" testItemId="44">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="AccountName">
+                  <value class="variable">
+                    <path element="AccountName"/>
+                  </value>
+                </argument>
+                <argument id="AccountId"/>
+                <argument id="LastName">
+                  <value class="variable">
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="45" title="Click Contact Address">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Click Contact Address</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="46">
+          <steps>
+            <caseCall testCaseId="5c0bf4d1-1c7a-4d7b-8893-c57861cdaca1" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click Contact Address.testcase" testItemId="50">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="LastName">
+                  <value class="variable">
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="AccountName">
+                  <value class="variable">
+                    <path element="AccountName"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="51" title="Verify Google Maps fields">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Verify Google Maps fields</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="52">
+          <steps>
+            <caseCall testCaseId="dd64023f-c57d-4baa-b8b0-d2632438dbc9" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Contact Address Verification.testcase" testItemId="54">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="State">
+                  <value class="variable">
+                    <path element="State"/>
+                  </value>
+                </argument>
+                <argument id="Street">
+                  <value class="variable">
+                    <path element="Street"/>
+                  </value>
+                </argument>
+                <argument id="City">
+                  <value class="variable">
+                    <path element="City"/>
+                  </value>
+                </argument>
+                <argument id="Zip">
+                  <value class="variable">
+                    <path element="Zip"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params/>
+  <args/>
+</testCase>

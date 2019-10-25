@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="23">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Global)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Global</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Read" name="Read" testItemId="10" title="Read: templates/Book1.xlsx=&gt;Contents">
+      <arguments>
+        <argument id="urlString">
+          <value class="url">templates/Book1.xlsx</value>
+        </argument>
+        <argument id="contentFormat">
+          <value class="value" valueClass="string">Text</value>
+        </argument>
+        <argument id="contentEncoding">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Contents</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="storeAs">
+          <value class="value" valueClass="string">Text</value>
+        </argument>
+      </arguments>
+      <expectedExceptions/>
+      <parameterValueSources>
+        <parameterValueSource variableName="ExcelData" variableScope="Test">
+          <cacheToken>/Users/clint.daniel/Provar/Demo/demo/templates/Book1.xlsx;1547143041000</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Company"/>
+            <apiParam name="LeadStatus"/>
+            <apiParam name="Email"/>
+            <apiParam name="LeadSource"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" created="0" namesLocation="FirstRowOfRange" updated="0" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Book1.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:F6</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="2" title="For Each: {ExcelData}=&gt;Row">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Row</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="ExcelData" variableScope="Test">
+          <cacheToken>/Users/clint.daniel/Provar/Demo/demo/templates/Book1.xlsx;1547143041000</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Company"/>
+            <apiParam name="LeadStatus"/>
+            <apiParam name="Email"/>
+            <apiParam name="LeadSource"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" created="0" namesLocation="FirstRowOfRange" updated="0" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Book1.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:F6</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="substeps" testItemId="3">
+          <steps>
+            <caseCall testCaseId="d414856e-e46b-4dfc-8c14-2897ac30c3b5" testCasePath="tests/Create Lead Case.testcase" testItemId="4">
+              <arguments>
+                <argument id="ExcelData">
+                  <value class="variable">
+                    <path element="ExcelData"/>
+                  </value>
+                </argument>
+                <argument id="FirstName">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+                <argument id="LastName">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="Company">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="Company"/>
+                  </value>
+                </argument>
+                <argument id="LeadStatus">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="LeadStatus"/>
+                  </value>
+                </argument>
+                <argument id="Email">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="Email"/>
+                  </value>
+                </argument>
+                <argument id="LeadSource">
+                  <value class="variable">
+                    <path element="Row"/>
+                    <path element="LeadSource"/>
+                  </value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

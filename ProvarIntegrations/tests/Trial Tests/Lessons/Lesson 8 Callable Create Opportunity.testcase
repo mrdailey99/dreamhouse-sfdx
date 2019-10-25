@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="1" registryId="a468eebe-48cf-4f86-b82d-24f4dfbab941" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SF_Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SF_Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Opportunity=&gt;OpportunityId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Opportunity</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">OpportunityId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SF_Admin</value>
+        </argument>
+        <argument argId="d6341ff7-5006-47f7-a3ce-b3fd540ddf16" id="Name">
+          <value class="variable">
+            <path element="Name"/>
+          </value>
+        </argument>
+        <argument id="StageName">
+          <value class="value" valueClass="string">Prospecting</value>
+        </argument>
+        <argument id="CloseDate">
+          <value class="variable">
+            <path element="TODAY"/>
+          </value>
+        </argument>
+        <argument argId="36964535-691b-42ab-bb77-50d769dd648c" id="AccountId">
+          <value class="variable">
+            <path element="AccountId"/>
+          </value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">SF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Opportunity</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Name" name="Name" title="Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=StageName" name="StageName" title="StageName"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=CloseDate" name="CloseDate" title="CloseDate"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=AccountId" name="AccountId" title="AccountId"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:d6341ff7-5006-47f7-a3ce-b3fd540ddf16" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Name" name="Name" title="Name">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:36964535-691b-42ab-bb77-50d769dd648c" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=AccountId" name="AccountId" title="AccountId">
+      <summary/>
+    </param>
+  </params>
+  <args>
+    <argument id="Name">
+      <value class="value" valueClass="string">Opp Test 123</value>
+    </argument>
+    <argument id="AccountId">
+      <value class="variable">
+        <path element="AccountId"/>
+      </value>
+    </argument>
+  </args>
+</testCase>

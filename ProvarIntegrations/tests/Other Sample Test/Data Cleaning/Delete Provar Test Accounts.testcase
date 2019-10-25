@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="37">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: Select Id from Account where Name like 'Pro%'=&gt;AccountRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">Select Id from Account where Name like 'Pro%'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">AccountRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="5" title="For Each: {AccountRows}=&gt;AccountId">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="AccountRows"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">AccountId</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="4" title="Delete Object: {AccountId.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="AccountId"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

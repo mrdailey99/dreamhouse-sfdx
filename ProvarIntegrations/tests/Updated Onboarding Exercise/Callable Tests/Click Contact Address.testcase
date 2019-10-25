@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="12" registryId="5c0bf4d1-1c7a-4d7b-8893-c57861cdaca1" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSalesConsole</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument argId="609b8fe8-c895-4216-a2fc-6810942dc3e5" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="26" title="On SF Contact (Employee) View screen">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=Contact&amp;noOverride=true&amp;recordType=Employee&amp;action=View"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Dont</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Contact (Employee) View screen</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="scTabType">
+          <value class="value" valueClass="string">ExistingTab</value>
+        </argument>
+        <argument id="scPrimaryTabName">
+          <value class="variable">
+            <path element="AccountName"/>
+          </value>
+        </argument>
+        <argument id="scSecondaryTabName">
+          <value class="variable">
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument id="sfUiTargetObjectId"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="48">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="49" title="Click the Mailing Address field">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:locator?name=MailingAddress&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DContact%26field%3DMailingAddress"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                </argument>
+                <argument id="hover">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Click the Mailing Address field</value>
+                </argument>
+                <argument id="autoRetry"/>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="scTabType" seq="1000" title="Tab Type">
+          <summary>The tab type for Scaffolds</summary>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="valuesSource">com.provar.plugins.sf.eclipse.ui:com.provar.plugins.forcedotcom.ui.valuesources.SfEnumChoiceListValuesSource</valueConstraint>
+                <valueConstraint name="valuesSourceDependencies">com.provar.plugins.forcedotcom.core.ui.SfUiTargetUrl$ConsoleTabType</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="target" name="scPrimaryTabName" seq="1001" title="Primary Tab Name">
+          <summary>The main tab name</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="target" name="scSecondaryTabName" seq="1002" title="Secondary Tab Name">
+          <summary>The sub-tab name</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:609b8fe8-c895-4216-a2fc-6810942dc3e5" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+    <param name="LastName" title="LastName">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="AccountName" title="AccountName">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="reuseConnectionName"/>
+    <argument id="LastName"/>
+    <argument id="AccountName"/>
+  </args>
+</testCase>

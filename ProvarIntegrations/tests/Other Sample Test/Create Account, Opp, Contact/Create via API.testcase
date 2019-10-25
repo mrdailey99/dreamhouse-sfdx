@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="22">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Sales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="environment"/>
+        <argument id="securityToken"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="5" title="Create an account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create an account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Account=&gt;AccountId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Account</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">AccountId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="Name">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Provar_Acc_</value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">3</value>
+                        </argument>
+                      </funcCall>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="Industry">
+                  <value class="value" valueClass="string">Agriculture</value>
+                </argument>
+                <argument id="Phone">
+                  <value class="value" valueClass="string">8010111002</value>
+                </argument>
+                <argument id="AccountNumber">
+                  <value class="funcCall" id="UniqueId">
+                    <argument id="length">
+                      <value class="value" valueClass="decimal">5</value>
+                    </argument>
+                    <argument id="format">
+                      <value class="value" valueClass="string">NUMERIC</value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="Type">
+                  <value class="value" valueClass="string">Prospect</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">DF_Demo_ORG</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Name"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Industry" name="Industry" title="Industry"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=AccountNumber" name="AccountNumber" title="AccountNumber"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Type" name="Type" title="Type"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="9" title="Create an opp under above account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create an opp under above account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="10">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="13" title="Create Object: Opportunity=&gt;OpportunityId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Opportunity</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">OpportunityId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="Name">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Provar_Opp_</value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">3</value>
+                        </argument>
+                      </funcCall>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="StageName">
+                  <value class="value" valueClass="string">Prospecting</value>
+                </argument>
+                <argument id="CloseDate">
+                  <value class="value" valueClass="date">1482364800000</value>
+                </argument>
+                <argument id="AccountId">
+                  <value class="variable">
+                    <path element="AccountId"/>
+                  </value>
+                </argument>
+                <argument id="Probability"/>
+                <argument id="Amount">
+                  <value class="value" valueClass="decimal">1000</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">DF_Demo_ORG</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Opportunity</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Name" name="Name" title="Name"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=StageName" name="StageName" title="StageName"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=CloseDate" name="CloseDate" title="CloseDate"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=AccountId" name="AccountId" title="AccountId"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Probability" name="Probability" title="Probability"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Amount" name="Amount" title="Amount"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="11" title="Create a contact under above account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create a contact under above account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="12">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="14" title="Create Object: Contact=&gt;ContactId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Contact</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">ContactId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="LastName">
+                  <value class="value" valueClass="string">Wig</value>
+                </argument>
+                <argument id="AccountId">
+                  <value class="variable">
+                    <path element="AccountId"/>
+                  </value>
+                </argument>
+                <argument id="FirstName">
+                  <value class="value" valueClass="string">Vikas</value>
+                </argument>
+                <argument id="Phone">
+                  <value class="value" valueClass="string">910939484</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">DF_Demo_ORG</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="LastName"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=AccountId" name="AccountId" title="AccountId"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=FirstName" name="FirstName" title="FirstName"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=Phone" name="Phone" title="Phone"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

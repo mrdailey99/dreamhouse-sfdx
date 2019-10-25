@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="3" title="Read Object: copado__External_CI_Job_Result__c = {externalCIJobID}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">copado__External_CI_Job_Result__c</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">externalCIJobResult</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="externalCIJobID"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">copado__External_CI_Job_Result__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=copado__External_CI_Job_Result__c&amp;field=Id" name="Id" title="External CI Job Result ID"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=copado__External_CI_Job_Result__c&amp;field=copado__Duration__c" name="copado__Duration__c" title="Duration (in seconds)"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" testItemId="2" title="Update Object: provarti__Test_Suite_Execution__c = {TestSuiteExecutionId}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">provartiUpdated</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="TestSuiteExecutionId"/>
+          </value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="provarti__Duration__c">
+          <value class="variable">
+            <path element="externalCIJobResult"/>
+            <path element="copado__Duration__c"/>
+          </value>
+        </argument>
+        <argument id="External_CI_Job_Result__c">
+          <value class="variable">
+            <path element="externalCIJobResult"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Duration__c" name="provarti__Duration__c" title="provarti__Duration__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=External_CI_Job_Result__c" name="External_CI_Job_Result__c" title="External_CI_Job_Result__c"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <tags>
+    <string>disabled</string>
+  </tags>
+</testCase>

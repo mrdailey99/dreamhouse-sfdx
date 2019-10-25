@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="18">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument argId="dff76d67-c98d-4b74-a632-9050cefa90d2" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="56" title="Set Parameters">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Set Parameters</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>/Users/clint.daniel/Provar/Demo/demo/templates/AccountExcel.xlsx;1553790811000</cacheToken>
+          <cachedParameters>
+            <apiParam name="Rating"/>
+            <apiParam name="Active"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/AccountExcel.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="57">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="58" title="Set Values: AccountName">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">OpportunityName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">AppleJacks</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">CloseDate</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="TODAY"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">TestAccount</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="111" title="Set Values: LastName">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Professional Variable Incorporated VEOBZ</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LastName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Johnson</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="112" title="Set Values: Zip">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Street</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">19 Jr Gilliam Way</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">City</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Nashville</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">State</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">TN</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Zip</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">37219</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="87" title="Subscribe Receiving Email Connection">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Subscribe Receiving Email Connection</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="9">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.Subscribe" name="Subscribe" testItemId="6" title="Subscribe: Gmail">
+              <arguments>
+                <argument id="sourceConnectionName">
+                  <value class="value" valueClass="string">Gmail</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Gmail</value>
+                </argument>
+                <argument id="folder">
+                  <value class="value" valueClass="string">INBOX</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="from"/>
+                <argument id="subject">
+                  <value class="variable">
+                    <path element="Subject"/>
+                  </value>
+                </argument>
+                <argument id="parseAttachment"/>
+              </arguments>
+              <generatedParameters>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="folder" title="Folder">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="from" title="From">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="subject" title="Subject">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="parseAttachment" title="Read Email Attachments">
+                  <type>
+                    <booleanType/>
+                  </type>
+                </param>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="48" title="New Account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">New Account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="49">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="15" title="Click New Account button">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Click New Account button</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="16">
+                  <steps>
+                    <caseCall testCaseId="522c2264-33cf-43ce-b87f-53ced2ae0cca" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click New Account.testcase" testItemId="17">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="18" title="Add Account Data and Save">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Add Account Data and Save</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="19">
+                  <steps>
+                    <caseCall testCaseId="f2ab7edc-2a7e-4803-8fdc-23e23034f3c0" testCasePath="tests/Updated Onboarding Exercise/Everything Test.testcase" testItemId="35">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="AccountName">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Professional Variable Incorporated </value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="AccountRating">
+                          <value class="variable">
+                            <path element="SourceData"/>
+                            <path element="Rating"/>
+                          </value>
+                        </argument>
+                        <argument id="SLAExpirationDate">
+                          <value class="funcCall" id="DateAdd">
+                            <argument id="date">
+                              <value class="variable">
+                                <path element="TODAY"/>
+                              </value>
+                            </argument>
+                            <argument id="amount">
+                              <value class="value" valueClass="decimal">7</value>
+                            </argument>
+                          </value>
+                        </argument>
+                        <argument id="Active">
+                          <value class="variable">
+                            <path element="SourceData"/>
+                            <path element="Active"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="40" title="New Contact">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">New Contact</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="41">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="21" title="Click New Contact button">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Click New Contact button</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="22">
+                  <steps>
+                    <caseCall testCaseId="95c86a92-d65a-48e0-bc28-ab3085dfa055" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click New Contact.testcase" testItemId="23">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="24" title="Add Contact Data and Save">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Add Contact Data and Save</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="25">
+                  <steps>
+                    <caseCall testCaseId="67196a86-9de5-46ab-af31-c685e93daefc" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Add Contact Data.testcase" testItemId="31">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="Salutation">
+                          <value class="value" valueClass="string">Prof.</value>
+                        </argument>
+                        <argument id="FirstName">
+                          <value class="value" valueClass="string">Horatio</value>
+                        </argument>
+                        <argument id="LastName">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Featherbottom</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="BusinessPhone">
+                          <value class="value" valueClass="string">6158675309</value>
+                        </argument>
+                        <argument id="Birthdate">
+                          <value class="value" valueClass="string">2000</value>
+                        </argument>
+                        <argument id="Title">
+                          <value class="value" valueClass="string">Senior Consultant</value>
+                        </argument>
+                        <argument id="Languages">
+                          <value class="value" valueClass="string">Korean</value>
+                        </argument>
+                        <argument id="Level">
+                          <value class="value" valueClass="string">Secondary</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="36" title="New Opportunity">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">New Opportunity</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="37">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="59" title="Click New Opportunity Button">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Click New Opportunity Button</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="60">
+                  <steps>
+                    <caseCall testCaseId="ad5dc38d-e69d-4b26-b33e-aa8362c77dcd" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click New Opportunity.testcase" testItemId="61">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="62" title="Add Opportunity Data and Save">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Add Opportunity Data and Save</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="63">
+                  <steps>
+                    <caseCall testCaseId="7d012e7a-e282-4b25-ba47-f30379125344" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Add Opportunity Data and Save.testcase" testItemId="64">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="OpportunityName">
+                          <value class="variable">
+                            <path element="OpportunityName"/>
+                          </value>
+                        </argument>
+                        <argument id="CloseDate">
+                          <value class="variable">
+                            <path element="CloseDate"/>
+                          </value>
+                        </argument>
+                        <argument id="Stage">
+                          <value class="value" valueClass="string">Prospecting</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="65" title="New Case">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">New Case</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="66">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="67" title="Click New Case button">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Click New Case button</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="68">
+                  <steps>
+                    <caseCall testCaseId="6f987484-d295-434b-ac31-c2060044d179" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click New Case.testcase" testItemId="71">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="69" title="Add Case Data and Save">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Add Case Data and Save</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="70">
+                  <steps>
+                    <caseCall testCaseId="2386f1ab-d3bd-4983-bc62-1f69c75c5077" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Add Case Data and Save.testcase" testItemId="72">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="Number">
+                          <value class="value" valueClass="string">1</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="73" title="Edit Existing Opportunity">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Edit Existing Opportunity</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="74">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="76" title="Locate Existing Opportunity">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Locate Existing Opportunity</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="77">
+                  <steps>
+                    <caseCall testCaseId="bfa92cc5-bde9-4cec-aa9c-e6e9708aa6a9" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Locate existing Opportunity.testcase" testItemId="75">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="OpportunityName">
+                          <value class="variable">
+                            <path element="OpportunityName"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="79" title="Click Edit Opportunity">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Click Edit Opportunity</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="80">
+                  <steps>
+                    <caseCall testCaseId="d540b9c6-36b9-4258-9373-5bc319c479a6" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Click Edit Opportunity.testcase" testItemId="83">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="84" title="Edit Opportunity">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Edit Opportunity</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="85">
+                  <steps>
+                    <caseCall testCaseId="bc9c962a-92da-4092-9270-30004317cfaa" testCasePath="tests/Updated Onboarding Exercise/Callable Tests/Edit Existing Opportunity.testcase" testItemId="86">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="91" title="Send Email from connection">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Send Email from connection</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="12">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" name="SendMessage" testItemId="4" title="Send Message: Gmail">
+              <arguments>
+                <argument id="destinationConnectionName">
+                  <value class="value" valueClass="string">Gmail</value>
+                </argument>
+                <argument id="body">
+                  <value class="value" valueClass="string">Testing</value>
+                </argument>
+                <argument id="payloadFormat">
+                  <value class="value" valueClass="string">Auto</value>
+                </argument>
+                <argument id="attachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="to">
+                  <value class="value" valueClass="string">provartrial43@gmail.com</value>
+                </argument>
+                <argument id="cc"/>
+                <argument id="bcc"/>
+                <argument id="subject">
+                  <value class="variable">
+                    <path element="Subject"/>
+                  </value>
+                </argument>
+                <argument id="signature">
+                  <value class="value" valueClass="string">vw</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" mandatory="true" name="to" title="To">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="cc" title="CC">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="bcc" title="BCC">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="subject" title="Subject">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="signature" title="Signature">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="92" title="Receive email and assert subject">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Receive email and assert subject</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="93">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="2" title="Wait For: {Gmail.messageCount &gt; 0}=&gt;{10}">
+              <arguments>
+                <argument id="condition">
+                  <value class="gt">
+                    <lhs class="variable">
+                      <path element="Gmail"/>
+                      <path element="messageCount"/>
+                    </lhs>
+                    <rhs class="value" valueClass="decimal">0</rhs>
+                  </value>
+                </argument>
+                <argument id="testAtStart">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="maxIterations">
+                  <value class="value" valueClass="decimal">5</value>
+                </argument>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">10</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="3"/>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="7" title="Assert: Subject of received email with the expected variable value">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="Subject"/>
+                  </value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="Gmail"/>
+                    <path element="messages"/>
+                    <path element="subject"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="94" title="New API Account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">New API Account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="95">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="97" title="Create new Account">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Create new Account</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="98">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="96" title="Create Object: Account=&gt;AccountId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">Account</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">AccountId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="Name">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">TestAccount</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Name"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="99" title="Get AccountId">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Get AccountId</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="100">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="103" title="SOQL Query: select Id from Account WHERE Name='{AccountName}'=&gt;AccountRows">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id from Account WHERE Name='</value>
+                              <variable>
+                                <path element="AccountName"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">AccountRows</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params/>
+  <args/>
+</testCase>

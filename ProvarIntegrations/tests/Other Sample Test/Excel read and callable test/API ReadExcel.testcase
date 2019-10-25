@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="176">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="1" title="Read Excel sheet and loop through data to process using callable test">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel sheet and loop through data to process using callable test</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource url="excel:templates/OppData.xlsx?worksheet=Sheet1&amp;range=A1%3AB3&amp;namesLocation=FirstRowOfRange&amp;whereComparison=EqualTo" variableName="ExcelData" variableScope="Test">
+          <cacheToken>C:\\Users\\Geraint\\Provar\\dreamforce\\Dreamforce15\\templates\\OppData.xlsx;1442325800727</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="StageName"/>
+            <apiParam name="Probability"/>
+          </cachedParameters>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="2">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="3" title="For Each: {ExcelData}=&gt;Row">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="ExcelData"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">Row</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="4">
+                  <steps>
+                    <caseCall testCaseId="c5ae0094-5ad8-4e80-8136-0d14c5095daa" testCasePath="tests/Other Sample Test/Excel read and callable test/API Callable.testcase" testItemId="5">
+                      <arguments>
+                        <argument id="StageName">
+                          <value class="variable">
+                            <path element="Row"/>
+                            <path element="StageName"/>
+                          </value>
+                        </argument>
+                        <argument id="Probability">
+                          <value class="variable">
+                            <path element="Row"/>
+                            <path element="Probability"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

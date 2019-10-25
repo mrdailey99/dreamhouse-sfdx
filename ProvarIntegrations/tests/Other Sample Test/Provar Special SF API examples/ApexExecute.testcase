@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="3">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Sales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="privateBrowsingMode"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Execute Apex code to change title for all contacts">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Execute Apex code to change title for all contacts</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="4">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" name="ApexExecute" testItemId="2" title="Apex Execute">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="apexBlock">
+                  <value class="value" valueClass="string">List &lt;Contact&gt; conlist = [Select Name from Contact where AccountId != null];\nfor(Contact con : conlist)\n{\ncon.title = 'Dr';\n}\nif (conlist.size()&gt;0)\n{\nupdate conlist;\nsystem.debug('----Success, '+conlist.size()+' contact records updated----');\n}</value>
+                </argument>
+                <argument id="results">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="resultName">
+                        <value class="value" valueClass="string">ExecuteResult</value>
+                      </namedValue>
+                      <namedValue name="resultScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                      <namedValue name="regularExpression">
+                        <value class="value" valueClass="string">.*USER.*----(.*)----</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

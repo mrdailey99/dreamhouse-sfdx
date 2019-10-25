@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="60">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SF_Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SF_Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reopen</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Account=&gt;AccountId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Account</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">AccountId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SF_Admin</value>
+        </argument>
+        <argument id="assignmentRuleId">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Name">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Account Ref </value>
+              <funcCall id="UniqueId"/>
+            </parts>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">SF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Name"/>
+      </generatedParameters>
+    </apiCall>
+    <caseCall testCaseId="5133186c-d8a3-4ea3-92b1-28218207048f" testCasePath="tests/Trial Tests/Solved Exercises/Exercise 8 Callable Create Case.testcase" testItemId="3">
+      <arguments>
+        <argument id="AccountId">
+          <value class="variable">
+            <path element="AccountId"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="4" title="Read Object: Account = {AccountId}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Account</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">AccountRead</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SF_Admin</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="AccountId"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <resultAssertions>
+        <resultAssertion resultName="Active__c" title="Check Active__c">
+          <expected class="value" valueClass="string">Yes</expected>
+        </resultAssertion>
+      </resultAssertions>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">SF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Active__c" name="Active__c" title="Active"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>

@@ -1,0 +1,23 @@
+!SESSION 2019-10-24 10:23:34.732 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_181
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -clean -data C:\Users\16156\Provar\Workspaces\ProvarIntegrations\ProvarIntegrations -clean
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2019-10-24 10:23:40.233
+!MESSAGE An error occurred while installing the items
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2019-10-24 10:23:40.233
+!MESSAGE session context was:(profile=DefaultProfile, phase=org.eclipse.equinox.internal.p2.engine.phases.Install, operand=null --> [R]com.provar.browser.appium 1.9.8.04, action=org.eclipse.equinox.internal.p2.touchpoint.eclipse.actions.InstallBundleAction).
+!SUBENTRY 1 org.eclipse.equinox.p2.touchpoint.eclipse 4 0 2019-10-24 10:23:40.233
+!MESSAGE The artifact file for osgi.bundle,com.provar.browser.appium,1.9.8.04 was not found.
+
+!ENTRY org.eclipse.ui 2 0 2019-10-24 10:23:41.082
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-10-24 10:23:41.082
+!MESSAGE Commands need a name: plug-in='com.provar.eclipse.ui'
+
+!ENTRY org.eclipse.ui 2 0 2019-10-24 10:23:41.740
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-10-24 10:23:41.741
+!MESSAGE Commands need a name: plug-in='com.provar.eclipse.ui'
