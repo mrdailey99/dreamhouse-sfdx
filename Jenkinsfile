@@ -21,13 +21,14 @@ node {
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
     	stage('Authenticate Devhub') {
             sh "chmod 755 -R ${toolbelt}"
-            rc = sh returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+            sh "${toolbelt}/install"
+            rc = sh returnStatus: true, script: "\"${toolbelt}\"/bin/sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             if (rc != 0) { error 'hub org authorization failed' }
         }
         
         stage('Create Scratch Org') {
             // need to pull out assigned username
-            rmsg = sh returnStdout: true, script: "\"${toolbelt}\" force:org:create -f config/developerOrg-scratch-def.json --json -s -a df13@makepositive.com"
+            rmsg = sh returnStdout: true, script: "\"${toolbelt}\"/bin/sfdx force:org:create -f config/developerOrg-scratch-def.json --json -s -a df13@makepositive.com"
             println(rmsg)
             def jsonSlurper = new JsonSlurperClassic()
             def robj = jsonSlurper.parseText(rmsg)
@@ -38,12 +39,12 @@ node {
         }
 
     	stage('Set Default scratch org') {
-            rc = sh returnStatus: true, script: "\"${toolbelt}\" force:config:set --global defaultusername=${SFDC_USERNAME} --json"
+            rc = sh returnStatus: true, script: "\"${toolbelt}\"/bin/sfdx force:config:set --global defaultusername=${SFDC_USERNAME} --json"
             if (rc != 0) { error 'Default scratch org failed' }
         }
 
         stage('Create password for scratch org') {
- 			rmsg = sh returnStdout: true, script: "\"${toolbelt}\" force:user:password:generate --json"
+ 			rmsg = sh returnStdout: true, script: "\"${toolbelt}\"/bin/sfdx force:user:password:generate --json"
 			println(rmsg)
 			def jsonSlurper = new JsonSlurperClassic()
 			def robj = jsonSlurper.parseText(rmsg)
@@ -52,7 +53,7 @@ node {
         }
 		
         stage('Push To Test Org') {
-            rc = sh returnStatus: true, script: "\"${toolbelt}\" force:source:push --targetusername ${SFDC_USERNAME}"
+            rc = sh returnStatus: true, script: "\"${toolbelt}\"/bin/sfdx force:source:push --targetusername ${SFDC_USERNAME}"
             if (rc != 0) { error 'Push failed'}
         }
         
