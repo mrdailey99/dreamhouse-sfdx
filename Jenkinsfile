@@ -20,7 +20,7 @@ node {
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
     	stage('Authenticate Devhub') {
-            sh "chmod 755 -R ${toolbelt}"
+            sh "chmod 777 -R ${toolbelt}"
             sh "${toolbelt}/install"
             rc = sh returnStatus: true, script: "\"${toolbelt}\"/bin/sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             if (rc != 0) { error 'hub org authorization failed' }
