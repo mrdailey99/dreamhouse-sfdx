@@ -37,12 +37,12 @@ node {
         }
 
     	stage('Set Default scratch org') {
-            rc = sh returnStatus: true, script: "\"${toolbelt}\"/sfdx force:config:set --global defaultusername=${SFDC_USERNAME} --json"
+            rc = sh returnStatus: true, script: "\"${toolbelt}\"sfdx force:config:set --global defaultusername=${SFDC_USERNAME} --json"
             if (rc != 0) { error 'Default scratch org failed' }
         }
 
         stage('Create password for scratch org') {
- 			rmsg = sh returnStdout: true, script: "\"${toolbelt}\"/sfdx force:user:password:generate --json"
+ 			rmsg = sh returnStdout: true, script: "\"${toolbelt}\"sfdx force:user:password:generate --json"
 			println(rmsg)
 			def jsonSlurper = new JsonSlurperClassic()
 			def robj = jsonSlurper.parseText(rmsg)
@@ -51,7 +51,7 @@ node {
         }
 		
         stage('Push To Test Org') {
-            rc = sh returnStatus: true, script: "\"${toolbelt}\"/sfdx force:source:push --targetusername ${SFDC_USERNAME}"
+            rc = sh returnStatus: true, script: "\"${toolbelt}\"sfdx force:source:push --targetusername ${SFDC_USERNAME}"
             if (rc != 0) { error 'Push failed'}
         }
         
@@ -69,7 +69,7 @@ node {
 
         stage('Run Provar test cases') {
 	    	println(SFDC_USERNAME)
-	    	rmsg = bat returnStdout: true, script: "ant -f ProvarIntegrations/ANT/build.xml -DSFDC_USERNAME_SO=${SFDC_USERNAME}"
+	    	rmsg = sh returnStdout: true, script: "ant -f ProvarIntegrations/ANT/build.xml -DSFDC_USERNAME_SO=${SFDC_USERNAME}"
 	        println(rmsg)
 	    }
 
